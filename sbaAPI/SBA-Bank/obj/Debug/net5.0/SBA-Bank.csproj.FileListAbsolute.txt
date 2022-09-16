@@ -589,3 +589,4 @@ C:\Users\Bhanu\source\repos\SBA\sbaAPI\SBA-Bank\obj\Debug\net5.0\SBA-Bank.dll
 C:\Users\Bhanu\source\repos\SBA\sbaAPI\SBA-Bank\obj\Debug\net5.0\ref\SBA-Bank.dll
 C:\Users\Bhanu\source\repos\SBA\sbaAPI\SBA-Bank\obj\Debug\net5.0\SBA-Bank.pdb
 C:\Users\Bhanu\source\repos\SBA\sbaAPI\SBA-Bank\obj\Debug\net5.0\SBA-Bank.genruntimeconfig.cache
+D:\Projects\SBA\SBA-Bank\sbaAPI\SBA-Bank\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
