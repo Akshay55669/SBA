@@ -35,6 +35,16 @@ namespace SBA_Bank
             services.AddIdentity<IdentityUser, IdentityRole>()
                  .AddDefaultTokenProviders().AddDefaultUI()
                  .AddEntityFrameworkStores<SBAdbContext>();
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 4;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+            }
+            );
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SBA_Bank", Version = "v1" });
@@ -52,7 +62,11 @@ namespace SBA_Bank
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors(builder =>
+            builder.WithOrigins("http://Localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            );
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
