@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+/// <summary>
+// Bhanu -- 16/09/2022 -- UserProfile table with all props
+/// </summary>
 namespace SBA_Bank.Models
 {
     public class UserProfile:IdentityUser
