@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SBA_Bank.DbContext;
 
 namespace SBA_Bank.Migrations
 {
     [DbContext(typeof(SBAdbContext))]
-    partial class SBAdbContextModelSnapshot : ModelSnapshot
+    [Migration("20220916102235_AddSupportToDb")]
+    partial class AddSupportToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

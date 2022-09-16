@@ -22,5 +22,8 @@ namespace SBA_Bank.DbContext
         // Bhanu -- 16/09/2022-- Statement table with all props
         public DbSet<Statement> statements { get; set; }
 
+        // Akshay -- 16/09/2022-- Support table with all props
+        public DbSet<Support> supports { get; set; }
+
     }
 }
