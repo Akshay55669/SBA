@@ -1,28 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\SBA\\SBA-Bank\\sbaAPI\\SBA-Bank\\SBA-Bank.csproj": {}
+    "C:\\Users\\Bhanu\\source\\repos\\SBA\\sbaAPI\\SBA-Bank\\SBA-Bank.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\SBA\\SBA-Bank\\sbaAPI\\SBA-Bank\\SBA-Bank.csproj": {
+    "C:\\Users\\Bhanu\\source\\repos\\SBA\\sbaAPI\\SBA-Bank\\SBA-Bank.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\SBA\\SBA-Bank\\sbaAPI\\SBA-Bank\\SBA-Bank.csproj",
+        "projectUniqueName": "C:\\Users\\Bhanu\\source\\repos\\SBA\\sbaAPI\\SBA-Bank\\SBA-Bank.csproj",
         "projectName": "SBA-Bank",
-        "projectPath": "D:\\Projects\\SBA\\SBA-Bank\\sbaAPI\\SBA-Bank\\SBA-Bank.csproj",
-        "packagesPath": "C:\\Users\\Akshay\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\SBA\\SBA-Bank\\sbaAPI\\SBA-Bank\\obj\\",
+        "projectPath": "C:\\Users\\Bhanu\\source\\repos\\SBA\\sbaAPI\\SBA-Bank\\SBA-Bank.csproj",
+        "packagesPath": "C:\\Users\\Bhanu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bhanu\\source\\repos\\SBA\\sbaAPI\\SBA-Bank\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Akshay\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Bhanu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nuget.sitefinity.com/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -96,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
         }
       }
     }
