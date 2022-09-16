@@ -35,6 +35,9 @@ namespace SBA_Bank
             services.AddIdentity<IdentityUser, IdentityRole>()
                  .AddDefaultTokenProviders().AddDefaultUI()
                  .AddEntityFrameworkStores<SBAdbContext>();
+
+            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SBA_Bank", Version = "v1" });
