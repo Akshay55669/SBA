@@ -11,5 +11,14 @@ namespace SBA_Bank.Models
     {
         [Key]
         public int AccountId { get; set; }
+
+        public long BankBranch { get; set; }
+
+        public decimal Balance { get; set; }
+
+        public string UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public UserProfile User { get; set; }
     }    
 }
