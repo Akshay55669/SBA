@@ -22,5 +22,5 @@ namespace SBA_Bank.Models
 
         [ForeignKey("UserId")]
         public UserProfile User { get; set; }
-    }    
+    }
 }

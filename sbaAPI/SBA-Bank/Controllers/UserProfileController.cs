@@ -22,24 +22,30 @@ namespace SBA_Bank.Controllers
         private UserManager<IdentityUser> _userManager;
         private SignInManager<IdentityUser> _signinManager;
         private readonly ApplicationSettings _appSettings;
-        public UserProfileController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signinManager, IOptions<ApplicationSettings>appSettings)
+        public UserProfileController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signinManager, IOptions<ApplicationSettings> appSettings)
         {
             _userManager = userManager;
             _signinManager = signinManager;
             _appSettings = appSettings.Value;
         }
 
+        // Bhanu -- 16/09/2022-- Register Controller
+        //Post Method for registration form 
         [HttpPost]
         [Route("Register")]
         //Post:/api/UserProfile/Register
-        public async Task<Object> PostUserProfile(UserProfileModel model)
+        public async Task<Object> PostUserProfile(Register model)
         {
+            //Bhanu -- 17/09/2022--added more fields to gather info from user during registration
             var UserProfile = new UserProfile()
             {
+                firstName = model.firstName,
+                lastName = model.lastName,
                 UserName = model.UserName,
                 Email = model.Email,
-               
-                
+                PhoneNumber = model.PhoneNumber,
+                dob = model.dob,
+                panCard = model.panCard
             };
             try
             {
@@ -52,13 +58,16 @@ namespace SBA_Bank.Controllers
             }
         }
 
+        // Akshay -- 16/09/2022-- Login Controller
+        //Post Method for registration form 
         [HttpPost]
         [Route("Login")]
         //Post:/api/UserProfile/Login
         public async Task<IActionResult> Login(LoginModel model)
         {
-            var user = await _userManager.FindByNameAsync(model.Email);
-            if(user!=null && await _userManager.CheckPasswordAsync(user, model.Password))
+            //Bhanu -- 17/09/2022-- customization done phonenumber used instead of email.
+            var user = await _userManager.FindByNameAsync(model.PhoneNumber);
+            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
@@ -75,7 +84,7 @@ namespace SBA_Bank.Controllers
                 return Ok(new { token });
             }
             else
-                return BadRequest(new {message ="Username or Password is incorrect."});
+                return BadRequest(new { message = "Username or Password is incorrect." });
         }
 
     }

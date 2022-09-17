@@ -37,15 +37,15 @@ namespace SBA_Bank
             services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
 
             services.AddControllers();
-            services.AddDbContext<SBAdbContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
+            services.AddDbContext<SBAdbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>()
                  .AddDefaultTokenProviders().AddDefaultUI()
                  .AddEntityFrameworkStores<SBAdbContext>();
 
 
-            
 
 
+            // Bhanu -- 16/09/2022-- Identity Validation
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;
@@ -57,7 +57,7 @@ namespace SBA_Bank
             );
             services.AddCors();
 
-            //Jwt Authentication
+            // Akshay -- 16/09/2022-- Jwt Authentication
 
             var Key = Encoding.UTF8.GetBytes(Configuration["ApplicationSettings:JWT_Secret"].ToString());
 
@@ -66,7 +66,8 @@ namespace SBA_Bank
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(x=> {
+            }).AddJwtBearer(x =>
+            {
                 x.RequireHttpsMetadata = false;
                 x.SaveToken = false;
                 x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
@@ -96,6 +97,7 @@ namespace SBA_Bank
             }
 
             app.UseHttpsRedirection();
+            // Bhanu -- 16/09/2022-- CORS implementation
             app.UseCors(builder =>
             builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
             .AllowAnyHeader()
