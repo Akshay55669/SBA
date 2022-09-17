@@ -1,1 +1,129 @@
-<p>register works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <img
+        class="registerImage"
+        src="/assets/Images/10172375_8233.jpg"
+        alt=""
+      />
+    </div>
+    <div class="col-6">
+      <div class="white-space"></div>
+      <div class="wrapper">
+        <div class="row">
+          <form class="border" autocomplete="off">
+            <div class=" ">
+              <h3 class="topborder text-center text-warning">
+                <span>Register Yourself</span>
+              </h3>
+              <div class="form-group">
+                <label for="firstName" class="text-white">First Name</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  class="form-control text-center"
+                  placeholder="Enter your first name"
+                  required
+                  [formControl]="firstName"
+                />
+                <!-- <span >firstName is required</span> -->
+              </div>
+              <div class="form-group required">
+                <label for="lastName" class="text-white">Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  class="form-control text-center"
+                  placeholder="Enter your last name"
+                  required
+                  [formControl]="lastName"
+                />
+              </div>
+              <div class="form-group required">
+                <label for="UserName" class="text-white">UserName</label>
+                <input
+                  type="text"
+                  name="UserName"
+                  id="UserName"
+                  class="form-control text-center"
+                  placeholder="Create a UserName"
+                  required
+                  [formControl]="UserName"
+                />
+              </div>
+              <div class="form-group required">
+                <label for="Email" class="text-white">Email</label>
+                <input
+                  type="text"
+                  name="Email"
+                  id="Email"
+                  class="form-control text-center"
+                  placeholder="Enter your Email-Id "
+                  required
+                  [formControl]="Email"
+                />
+              </div>
+              <div class="form-group required">
+                <label for="PhoneNumber" class="text-white">PhoneNumber</label>
+                <input
+                  type="text"
+                  name="PhoneNumber"
+                  id="PhoneNumber"
+                  class="form-control text-center"
+                  placeholder="Enter your PhoneNumber "
+                  required
+                  [formControl]="PhoneNumber"
+                />
+              </div>
+              <div class="form-group required">
+                <label for="dob" class="text-white">D.O.B</label>
+                <input
+                  type="datetime"
+                  name="dob"
+                  id="dob"
+                  class="form-control text-center"
+                  placeholder="Date Of Birth"
+                  required
+                  [formControl]="dob"
+                />
+              </div>
+              <div class="form-group required">
+                <label for="panCard" class="text-white">PanCard No</label>
+                <input
+                  type="text"
+                  name="panCard"
+                  id="panCard"
+                  class="form-control text-center"
+                  placeholder="Enter PanCard no"
+                  [formControl]="panCard"
+                />
+              </div>
+              <div class="form-group required">
+                <label for="Password" class="text-white">Password</label>
+                <input
+                  type="text"
+                  name="Password"
+                  id="Password"
+                  class="form-control text-center"
+                  placeholder="Enter email-id"
+                  [formControl]="Password"
+                />
+              </div>
+              <p class="text-center pt-2">
+                <button
+                  class="btn btn-outline-success"
+                  routerLink="/"
+                  (click)="save()"
+                >
+                  Proceed to payment
+                </button>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
