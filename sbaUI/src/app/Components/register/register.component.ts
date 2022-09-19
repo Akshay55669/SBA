@@ -22,13 +22,13 @@ myForm!: FormGroup;
     firstName:new FormControl('',[ Validators.required]),
     lastName:new FormControl('',[ Validators.required]),
     UserName:new FormControl('',[ Validators.required]),
-    Email:new FormControl('',[ Validators.required]),
-    PhoneNumber:new FormControl('',[ Validators.required]),
+    Email:new FormControl('',[ Validators.required,Validators.email]),
+    PhoneNumber:new FormControl('',[ Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
     dob:new FormControl('',[ Validators.required]),
-    panCard:new FormControl('',[ Validators.required]),
+    panCard:new FormControl('',[ Validators.required,Validators.pattern('^[A-Za-z]{5}[0-9]{4}[A-Za-z]$')]),
     
-      Password:new FormControl('',[ Validators.required]),
-      ConfirmPassword:new FormControl('',[ Validators.required])
+      Password:new FormControl('',[ Validators.required])
+      // ConfirmPassword:new FormControl('',[ Validators.required])
  });
 
  SaveData(){

@@ -10,8 +10,8 @@
     <div class="col-6 text-center ">
       
       <div class="account-form-wrapper d-flex justify-content-center shadow ">
-        <form class="account-form shadow" autocomplete="off" [formGroup]="formModel" (ngSubmit)="SaveData()">
-          <h5 class="title">Create Account</h5>
+        <form class="account-form shadow animate__animated animate__fadeInDownBig" autocomplete="off" [formGroup]="formModel" (ngSubmit)="SaveData()" >
+          <h5 class="title text-success">Welcome To Our Family!</h5>
           
           <div class="form-group">
             <label>First Name</label>
@@ -70,7 +70,7 @@
           <div class="text-danger"
           *ngIf="!formModel.controls.dob?.valid && (formModel.controls.dob?.dirty
           ||formModel.controls.dob?.touched)">
-          Password is not valid
+          Date Of Birth is not valid
         </div>
         </div>
       
@@ -95,9 +95,9 @@
           </div>
           <div class="text-center pt-2">
             <button
-              class="btn btn-outline-success"
+              class="btn btn-success"
              type="submit"
-             
+             [disabled]="!formModel.valid"
             >
               Proceed to payment
             </button>
