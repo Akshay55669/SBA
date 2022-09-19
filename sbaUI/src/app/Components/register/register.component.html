@@ -1,21 +1,21 @@
-<div class="container">
+<div class="container ">
   <div class="row">
     <div class="col-6">
       <img
-        class="registerImage"
+        class="registerImage animate__animated animate__fadeInUp"
         src="/assets/Images/10172375_8233.jpg"
         alt=""
       />
     </div>
-    <div class="col-6">
+    <div class="col-6 text-center ">
       <div class="white-space"></div>
       <div class="wrapper">
         <div class="row">
           <form class="border" autocomplete="off">
-            <div class=" ">
-              <h3 class="topborder text-center text-warning">
+            <div class=" " >
+              <div class="topborder text-center text-info" data-aos="flip-up">
                 <span>Register Yourself</span>
-              </h3>
+              </div>
               <div class="form-group">
                 <label for="firstName" class="text-white">First Name</label>
                 <input
@@ -27,9 +27,9 @@
                   required
                   [formControl]="firstName"
                 />
-                <!-- <span >firstName is required</span> -->
+               
               </div>
-              <div class="form-group required">
+              <div class="form-group ">
                 <label for="lastName" class="text-white">Last Name</label>
                 <input
                   type="text"
@@ -41,7 +41,7 @@
                   [formControl]="lastName"
                 />
               </div>
-              <div class="form-group required">
+              <div class="form-group ">
                 <label for="UserName" class="text-white">UserName</label>
                 <input
                   type="text"
@@ -53,10 +53,10 @@
                   [formControl]="UserName"
                 />
               </div>
-              <div class="form-group required">
+              <div class="form-group ">
                 <label for="Email" class="text-white">Email</label>
                 <input
-                  type="text"
+                  type="email"
                   name="Email"
                   id="Email"
                   class="form-control text-center"
@@ -65,7 +65,7 @@
                   [formControl]="Email"
                 />
               </div>
-              <div class="form-group required">
+              <div class="form-group ">
                 <label for="PhoneNumber" class="text-white">PhoneNumber</label>
                 <input
                   type="text"
@@ -103,11 +103,11 @@
               <div class="form-group required">
                 <label for="Password" class="text-white">Password</label>
                 <input
-                  type="text"
+                  type="password"
                   name="Password"
                   id="Password"
                   class="form-control text-center"
-                  placeholder="Enter email-id"
+                  placeholder="Create password"
                   [formControl]="Password"
                 />
               </div>
@@ -127,3 +127,6 @@
     </div>
   </div>
 </div>
+
+
+

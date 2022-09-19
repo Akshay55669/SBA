@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { APIsService } from 'src/app/API/apis.service';
 import { IRegister } from 'src/app/Interface/IRegister';
+import * as Aos from 'aos';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,7 +11,9 @@ import { IRegister } from 'src/app/Interface/IRegister';
 export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder, private Registerapi: APIsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    Aos.init();
+  }
   firstName:FormControl = new FormControl("");
 
   lastName:FormControl = new FormControl("");
