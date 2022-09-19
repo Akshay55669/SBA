@@ -67,8 +67,8 @@ namespace SBA_Bank.Controllers
         //Post:/api/UserProfile/Login
         public async Task<IActionResult> Login(LoginModel model)
         {
-            //Bhanu -- 17/09/2022-- customization done phonenumber used instead of email.
-            var user = await _userManager.FindByNameAsync(model.PhoneNumber);
+            
+            var user = await _userManager.FindByNameAsync(model.UserName);
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 var tokenDescriptor = new SecurityTokenDescriptor
@@ -77,7 +77,7 @@ namespace SBA_Bank.Controllers
                     {
                         new Claim("UserID",user.Id.ToString())
                     }),
-                    Expires = DateTime.UtcNow.AddMinutes(5),
+                    Expires = DateTime.UtcNow.AddDays(1),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
                 };
                 var tokenHandler = new JwtSecurityTokenHandler();

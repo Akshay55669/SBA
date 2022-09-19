@@ -1,31 +1,47 @@
-<!-- <section class="container-fluid forms">
-    <div class="form login">
-        <div class="form-content">
-            <h2>Login</h2>
-            <form #form='ngForm'>
-                <div class="field input-field">
-                    <input type="email" #Email="ngModel" name="Email"[(ngModel)]="formModel.Email" placeholder="Email" class="input">
-                    <i class="bi bi-envelope email-icon"></i>
-                </div>
+<div class="container ">
+    <div class="row">
+        <div class="col-6">
+            <img class="registerImage animate__animated animate__fadeInUp" src="/assets/Images/10172375_8233.jpg"
+                alt="" />
+        </div>
+        <div class="col-6 text-center ">
 
-                <div class="field input-field">
-                    <input type="password" #Password="ngModel" name="Password"[(ngModel)]="formModel.Password" placeholder="Password" class="password">
-                    <i class="bi bi-eye-slash eye-icon"></i>
-                </div>
+            <div class="account-form-wrapper d-flex justify-content-center shadow ">
+                <form class="account-form shadow animate__animated animate__fadeInDownBig" autocomplete="off"
+                    [formGroup]="formModel" (ngSubmit)="SaveData()">
+                    <h5 class="title text-success">Login To Our Family!</h5>
 
-                
-                <div class="field">
-                    <button type="submit" [disabled]="form.invalid">Login</button>
-                </div>
-            </form>
-            
-            <div class="form-link">
-                <span>Don't have an account? <a routerLink="/register" class="link signup-link">Signup</a></span>
-            </div>
-            <div class="form-link">
-                <a routerLink="/forgetpassword" class="forgot-pass">Forgot password?</a>
+
+                    <div class="form-group">
+                        <label>UserName</label>
+                      <input  id="UserName" type="text" name="UserName" class="form-control rounded border-white mb-3 form-input" placeholder="Enter your UserName" formControlName="UserName">
+                      <div class="text-danger"
+                      *ngIf="!formModel.controls.UserName?.valid && (formModel.controls.UserName?.dirty
+                      ||formModel.controls.UserName?.touched)">
+                      UserName is not valid
+                      </div>
+                      </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input id="Password" type="Password" name="Password"
+                            class="form-control rounded border-white mb-3 form-input" placeholder="Enter your Password"
+                            formControlName="Password">
+                        <div class="text-danger" *ngIf="!formModel.controls.Password?.valid && (formModel.controls.Password?.dirty
+              ||formModel.controls.Password?.touched)">
+                            Password is not valid
+                        </div>
+                    </div>
+                    <div class="text-center pt-2">
+                        <button class="btn btn-success" type="submit" [disabled]="!formModel.valid">
+                            Login
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    </section> -->
+
+
