@@ -4,3 +4,26 @@
     width: 80%;
     padding-left: 4em;
 }
+
+.account-form-wrapper {
+    padding: 100px 0;
+  }
+  
+  .account-form {
+    padding: 30px 40px;
+    background-color: #e4db8c;
+    border-radius: 12px;
+    max-width: 400px;
+    background-repeat: no-repeat;
+  }
+  
+  .account-form textarea {
+    resize: none;
+  }
+  
+  .account-form .form-input,
+  .form-text-area {
+    background-color: #f0f4f5;
+    height: 50px;
+    padding-left: 16px;
+  }

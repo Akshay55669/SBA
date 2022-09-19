@@ -10,25 +10,56 @@ import * as Aos from 'aos';
 })
 export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder, private Registerapi: APIsService) {}
+userProfile!:IRegister;
+myForm!: FormGroup;
 
   ngOnInit(): void {
     Aos.init();
+    this.formModel.reset();
   }
-  firstName:FormControl = new FormControl("");
+  formModel = new FormGroup({
+   
+    firstName:new FormControl('',[ Validators.required]),
+    lastName:new FormControl('',[ Validators.required]),
+    UserName:new FormControl('',[ Validators.required]),
+    Email:new FormControl('',[ Validators.required]),
+    PhoneNumber:new FormControl('',[ Validators.required]),
+    dob:new FormControl('',[ Validators.required]),
+    panCard:new FormControl('',[ Validators.required]),
+    
+      Password:new FormControl('',[ Validators.required]),
+      ConfirmPassword:new FormControl('',[ Validators.required])
+ });
 
-  lastName:FormControl = new FormControl("");
+ SaveData(){
+  debugger
+  this.Registerapi.RegisterPost(this.formModel.value).subscribe(
+     (res: any) => {
+      if (res.succeeded) {
+         this.formModel.reset();
+        console.log('New user created!', 'Registration successful.');
+       } 
+ else{
+  console.log("error occured");
+ }
+}
+  );
+ }
+  // firstName:FormControl = new FormControl("");
 
-  UserName:FormControl = new FormControl("");
+  // lastName:FormControl = new FormControl("");
 
-  Email:FormControl = new FormControl("");
+  // UserName:FormControl = new FormControl("");
 
-  PhoneNumber:FormControl = new FormControl("");
+  // Email:FormControl = new FormControl("");
 
-  dob:FormControl = new FormControl("");
+  // PhoneNumber:FormControl = new FormControl("");
 
-  panCard:FormControl = new FormControl("");
+  // dob:FormControl = new FormControl("");
 
-  Password:FormControl = new FormControl("");
+  // panCard:FormControl = new FormControl("");
+
+  // Password:FormControl = new FormControl("");
 
 
   // //comparing passwords
@@ -43,55 +74,58 @@ export class RegisterComponent implements OnInit {
   //       confirmPswrdCtrl.setErrors(null);
   //   }
   // }
-  // onSubmit() {
-  //   this.Registerapi.RegisterPost(object:IRegister).subscribe(
-  //     (res: any) => {
-  //       if (res.succeeded) {
-  //         this.formModel.reset();
-  //         //this.toastr.success('New user created!', 'Registration successful.');
-  //       } else {
-  //         res.errors.forEach(element => {
-  //           switch (element.code) {
-  //             case 'DuplicateUserName':
-  //               //this.toastr.error('Username is already taken','Registration failed.');
-  //               break;
+  // onSubmit():void{
+  //   this.Registerapi.RegisterPost(this.userProfile).subscribe(
+    //   (res: any) => {
+    //     if (res.succeeded) {
+    //       this.formModel.reset();
+    //       //this.toastr.success('New user created!', 'Registration successful.');
+    //     } else {
+    //       res.errors.forEach(element => {
+    //         switch (element.code) {
+    //           case 'DuplicateUserName':
+    //             //this.toastr.error('Username is already taken','Registration failed.');
+    //             break;
 
-  //             default:
-  //             //this.toastr.error(element.description,'Registration failed.');
-  //               break;
-  //           }
-  //         });
-  //       }
-  //     },
-  //     err => {
-  //       console.log(err);
-  //     }
-  //   );
+    //           default:
+    //           //this.toastr.error(element.description,'Registration failed.');
+    //             break;
+    //         }
+    //       });
+    //     }
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   }
+    // );
   // }
 
-  save(){
+  // save(){
 
-    let Registration:IRegister = {
+  //   let Registration:IRegister = {
 
-      firstName:this.firstName.value,
+  //     firstName:this.firstName.value,
 
-      lastName:this.lastName.value,
+  //     lastName:this.lastName.value,
 
-      UserName:this.UserName.value,
+  //     UserName:this.UserName.value,
 
-      Email:this.Email.value,
+  //     Email:this.Email.value,
 
-      PhoneNumber:this.PhoneNumber.value,
+  //     PhoneNumber:this.PhoneNumber.value,
 
-      dob:this.dob.value,
+  //     dob:this.dob.value,
 
-      panCard:this.panCard.value,
+  //     panCard:this.panCard.value,
 
-      Password:this.Password.value,
+  //     Password:this.Password.value,
 
-    };
+  //   };
 
-    this.Registerapi.RegisterPost(Registration);
+  //   this.Registerapi.RegisterPost(Registration);
 
-  }
+  // }
+
+
+
 }

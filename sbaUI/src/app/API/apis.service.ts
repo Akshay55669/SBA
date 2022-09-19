@@ -16,11 +16,11 @@ export class APIsService {
   }
 
   //BHANU -- 17/09/2022 -- POSTING DATA FROM DATABASE BY CONNECTING TO REGISTER CONTOLLER IN WEB API
-  RegisterPost(object:IRegister){
-this.http.post<IRegister>(this.url+ 'UserProfile/Register',object, {
+  RegisterPost(object:any){
+return this.http.post(this.url+ 'UserProfile/Register',object, {
   headers:{
     "Access-Control-Allow-Origin":"*"
   }
-}).subscribe(result => console.log("User details entered in Database Successfully !"));// subscribing
+})
 }
 }

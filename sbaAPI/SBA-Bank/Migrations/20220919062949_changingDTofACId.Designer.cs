@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SBA_Bank.DbContext;
 
 namespace SBA_Bank.Migrations
 {
     [DbContext(typeof(SBAdbContext))]
-    partial class SBAdbContextModelSnapshot : ModelSnapshot
+    [Migration("20220919062949_changingDTofACId")]
+    partial class changingDTofACId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -223,21 +225,19 @@ namespace SBA_Bank.Migrations
 
             modelBuilder.Entity("SBA_Bank.Models.AccountDetails", b =>
                 {
-                    b.Property<long>("AccountNo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<decimal>("AccId")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("BankBranch")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<long>("BankBranch")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("AccountNo");
+                    b.HasKey("AccId");
 
                     b.HasIndex("UserId");
 
@@ -250,9 +250,6 @@ namespace SBA_Bank.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("AccountNo")
-                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -267,8 +264,6 @@ namespace SBA_Bank.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("txnId");
-
-                    b.HasIndex("AccountNo");
 
                     b.ToTable("statements");
                 });
@@ -368,17 +363,6 @@ namespace SBA_Bank.Migrations
                         .HasForeignKey("UserId");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("SBA_Bank.Models.Statement", b =>
-                {
-                    b.HasOne("SBA_Bank.Models.AccountDetails", "AccountDetails")
-                        .WithMany()
-                        .HasForeignKey("AccountNo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AccountDetails");
                 });
 #pragma warning restore 612, 618
         }

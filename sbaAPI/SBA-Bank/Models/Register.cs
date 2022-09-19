@@ -22,5 +22,7 @@ namespace SBA_Bank.Models
 
         public string lastName { get; set; }
         public string PhoneNumber { get; set; }
+
+       
     }
 }

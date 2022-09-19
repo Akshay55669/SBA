@@ -46,6 +46,8 @@ namespace SBA_Bank.Controllers
                 PhoneNumber = model.PhoneNumber,
                 dob = model.dob,
                 panCard = model.panCard
+               
+                
             };
             try
             {

@@ -30,7 +30,7 @@ namespace SBA_Bank.Controllers
 
         // GET: api/AccountDetails/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<AccountDetails>> GetAccountDetails(int id)
+        public async Task<ActionResult<AccountDetails>> GetAccountDetails(long id)
         {
             var accountDetails = await _context.accountDetails.FindAsync(id);
 
@@ -45,9 +45,9 @@ namespace SBA_Bank.Controllers
         // PUT: api/AccountDetails/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAccountDetails(int id, AccountDetails accountDetails)
+        public async Task<IActionResult> PutAccountDetails(long id, AccountDetails accountDetails)
         {
-            if (id != accountDetails.AccountId)
+            if (id != accountDetails.AccountNo)
             {
                 return BadRequest();
             }
@@ -76,18 +76,18 @@ namespace SBA_Bank.Controllers
         // POST: api/AccountDetails
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        
         public async Task<ActionResult<AccountDetails>> PostAccountDetails(AccountDetails accountDetails)
         {
+            
             _context.accountDetails.Add(accountDetails);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAccountDetails", new { id = accountDetails.AccountId }, accountDetails);
+            return CreatedAtAction("GetAccountDetails", new { id = accountDetails.AccountNo }, accountDetails);
         }
 
         // DELETE: api/AccountDetails/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAccountDetails(int id)
+        public async Task<IActionResult> DeleteAccountDetails(long id)
         {
             var accountDetails = await _context.accountDetails.FindAsync(id);
             if (accountDetails == null)
@@ -101,9 +101,9 @@ namespace SBA_Bank.Controllers
             return NoContent();
         }
 
-        private bool AccountDetailsExists(int id)
+        private bool AccountDetailsExists(long id)
         {
-            return _context.accountDetails.Any(e => e.AccountId == id);
+            return _context.accountDetails.Any(e => e.AccountNo == id);
         }
     }
 }

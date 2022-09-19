@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 /// <summary>
@@ -10,6 +11,7 @@ namespace SBA_Bank.Models
 {
     public class UserProfile:IdentityUser
     {
+        
         public DateTime dob { get; set; }
 
         public string panCard { get; set; }
@@ -17,5 +19,7 @@ namespace SBA_Bank.Models
         public string firstName { get; set; }
 
         public string lastName { get; set; }
+
+   
     }
 }
