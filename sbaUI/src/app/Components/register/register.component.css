@@ -6,11 +6,11 @@
 }
 
 .account-form-wrapper {
-    padding: 100px 0;
+    padding: 2em 0;
   }
   
   .account-form {
-    padding: 30px 40px;
+    padding: 10px 70px;
     background-color: #e4db8c;
     border-radius: 12px;
     max-width: 400px;
@@ -26,4 +26,9 @@
     background-color: #f0f4f5;
     height: 50px;
     padding-left: 16px;
+  }
+
+  .animate__animated.animate__flash {
+    --animate-duration: 5s;
+    --animate-delay: 0.9s;
   }

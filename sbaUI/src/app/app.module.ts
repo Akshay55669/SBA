@@ -9,6 +9,8 @@ import { LoginComponent } from './Components/login/login.component';
 import { HomeComponent } from './Components/home/home.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { APIsService } from './API/apis.service';
+import { AdminComponent } from './Components/admin/admin.component';
+import { FAQComponent } from './Components/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { APIsService } from './API/apis.service';
     LoginComponent,
     HomeComponent,
     HeaderComponent,
+    AdminComponent,
+    FAQComponent,
   ],
   imports: [
     BrowserModule,
