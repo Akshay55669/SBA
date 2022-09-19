@@ -10,8 +10,8 @@ using SBA_Bank.DbContext;
 namespace SBA_Bank.Migrations
 {
     [DbContext(typeof(SBAdbContext))]
-    [Migration("20220919075235_changingdatatypeOfBankbranch")]
-    partial class changingdatatypeOfBankbranch
+    [Migration("20220919133733_FinalUpdateInDatabase")]
+    partial class FinalUpdateInDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -225,7 +225,7 @@ namespace SBA_Bank.Migrations
 
             modelBuilder.Entity("SBA_Bank.Models.AccountDetails", b =>
                 {
-                    b.Property<long>("AccId")
+                    b.Property<long>("AccountNo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -239,7 +239,7 @@ namespace SBA_Bank.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("AccId");
+                    b.HasKey("AccountNo");
 
                     b.HasIndex("UserId");
 
@@ -252,6 +252,9 @@ namespace SBA_Bank.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("AccountNo")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -266,6 +269,8 @@ namespace SBA_Bank.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("txnId");
+
+                    b.HasIndex("AccountNo");
 
                     b.ToTable("statements");
                 });
@@ -365,6 +370,17 @@ namespace SBA_Bank.Migrations
                         .HasForeignKey("UserId");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SBA_Bank.Models.Statement", b =>
+                {
+                    b.HasOne("SBA_Bank.Models.AccountDetails", "AccountDetails")
+                        .WithMany()
+                        .HasForeignKey("AccountNo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AccountDetails");
                 });
 #pragma warning restore 612, 618
         }

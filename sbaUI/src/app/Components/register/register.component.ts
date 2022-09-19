@@ -9,42 +9,42 @@ import * as Aos from 'aos';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private fb: FormBuilder, private Registerapi: APIsService) {}
-userProfile!:IRegister;
-myForm!: FormGroup;
+  constructor(private fb: FormBuilder, private Registerapi: APIsService) { }
+  userProfile!: IRegister;
+  myForm!: FormGroup;
 
   ngOnInit(): void {
     Aos.init();
     this.formModel.reset();
   }
   formModel = new FormGroup({
-   
-    firstName:new FormControl('',[ Validators.required]),
-    lastName:new FormControl('',[ Validators.required]),
-    UserName:new FormControl('',[ Validators.required]),
-    Email:new FormControl('',[ Validators.required,Validators.email]),
-    PhoneNumber:new FormControl('',[ Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-    dob:new FormControl('',[ Validators.required]),
-    panCard:new FormControl('',[ Validators.required,Validators.pattern('^[A-Za-z]{5}[0-9]{4}[A-Za-z]$')]),
-    
-      Password:new FormControl('',[ Validators.required])
-      // ConfirmPassword:new FormControl('',[ Validators.required])
- });
 
- SaveData(){
-  debugger
-  this.Registerapi.RegisterPost(this.formModel.value).subscribe(
-     (res: any) => {
-      if (res.succeeded) {
-         this.formModel.reset();
-        console.log('New user created!', 'Registration successful.');
-       } 
- else{
-  console.log("error occured");
- }
-}
-  );
- }
+    firstName: new FormControl('', [Validators.required]),
+    lastName: new FormControl('', [Validators.required]),
+    UserName: new FormControl('', [Validators.required]),
+    Email: new FormControl('', [Validators.required, Validators.email]),
+    PhoneNumber: new FormControl('', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+    dob: new FormControl('', [Validators.required]),
+    panCard: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z]{5}[0-9]{4}[A-Za-z]$')]),
+
+    Password: new FormControl('', [Validators.required])
+    // ConfirmPassword:new FormControl('',[ Validators.required])
+  });
+
+  SaveData() {
+    // debugger
+    this.Registerapi.RegisterPost(this.formModel.value).subscribe(
+      (res: any) => {
+        if (res.succeeded) {
+          this.formModel.reset();
+          console.log('New user created!', 'Registration successful.');
+        }
+        else {
+          console.log("error occured");
+        }
+      }
+    );
+  }
   // firstName:FormControl = new FormControl("");
 
   // lastName:FormControl = new FormControl("");
@@ -76,28 +76,28 @@ myForm!: FormGroup;
   // }
   // onSubmit():void{
   //   this.Registerapi.RegisterPost(this.userProfile).subscribe(
-    //   (res: any) => {
-    //     if (res.succeeded) {
-    //       this.formModel.reset();
-    //       //this.toastr.success('New user created!', 'Registration successful.');
-    //     } else {
-    //       res.errors.forEach(element => {
-    //         switch (element.code) {
-    //           case 'DuplicateUserName':
-    //             //this.toastr.error('Username is already taken','Registration failed.');
-    //             break;
+  //   (res: any) => {
+  //     if (res.succeeded) {
+  //       this.formModel.reset();
+  //       //this.toastr.success('New user created!', 'Registration successful.');
+  //     } else {
+  //       res.errors.forEach(element => {
+  //         switch (element.code) {
+  //           case 'DuplicateUserName':
+  //             //this.toastr.error('Username is already taken','Registration failed.');
+  //             break;
 
-    //           default:
-    //           //this.toastr.error(element.description,'Registration failed.');
-    //             break;
-    //         }
-    //       });
-    //     }
-    //   },
-    //   err => {
-    //     console.log(err);
-    //   }
-    // );
+  //           default:
+  //           //this.toastr.error(element.description,'Registration failed.');
+  //             break;
+  //         }
+  //       });
+  //     }
+  //   },
+  //   err => {
+  //     console.log(err);
+  //   }
+  // );
   // }
 
   // save(){

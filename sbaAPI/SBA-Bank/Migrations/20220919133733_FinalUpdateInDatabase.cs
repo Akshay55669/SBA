@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SBA_Bank.Migrations
 {
-    public partial class addingIdentityToDb : Migration
+    public partial class FinalUpdateInDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,6 +26,11 @@ namespace SBA_Bank.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    dob = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    panCard = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    firstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    lastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -47,6 +52,20 @@ namespace SBA_Bank.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "supports",
+                columns: table => new
+                {
+                    supportId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Questions = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Answers = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_supports", x => x.supportId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -65,6 +84,27 @@ namespace SBA_Bank.Migrations
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "accountDetails",
+                columns: table => new
+                {
+                    AccountNo = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BankBranch = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_accountDetails", x => x.AccountNo);
+                    table.ForeignKey(
+                        name: "FK_accountDetails_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -152,6 +192,34 @@ namespace SBA_Bank.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "statements",
+                columns: table => new
+                {
+                    txnId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    debit = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    credit = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    AccountNo = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_statements", x => x.txnId);
+                    table.ForeignKey(
+                        name: "FK_statements_accountDetails_AccountNo",
+                        column: x => x.AccountNo,
+                        principalTable: "accountDetails",
+                        principalColumn: "AccountNo",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_accountDetails_UserId",
+                table: "accountDetails",
+                column: "UserId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -190,6 +258,11 @@ namespace SBA_Bank.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_statements_AccountNo",
+                table: "statements",
+                column: "AccountNo");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -210,7 +283,16 @@ namespace SBA_Bank.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "statements");
+
+            migrationBuilder.DropTable(
+                name: "supports");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "accountDetails");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

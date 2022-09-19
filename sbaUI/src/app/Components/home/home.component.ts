@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Aos from 'aos';
+// import 'animate.css';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

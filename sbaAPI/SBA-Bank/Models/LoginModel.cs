@@ -9,8 +9,9 @@ namespace SBA_Bank.Models
 {
     public class LoginModel
     {
-        //Bhanu -- 17/09/2022--custom validation done phonenumber used instead of email.
-        public string PhoneNumber { get; set; }
+       
+
+        public string UserName { get; set; }
         public string Password { get; set; }
     }
 }
