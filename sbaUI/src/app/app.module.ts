@@ -11,6 +11,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { APIsService } from './API/apis.service';
 import { AdminComponent } from './Components/admin/admin.component';
 import { FAQComponent } from './Components/faq/faq.component';
+import { FeedbackComponent } from './Components/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FAQComponent } from './Components/faq/faq.component';
     HeaderComponent,
     AdminComponent,
     FAQComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,

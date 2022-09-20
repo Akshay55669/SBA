@@ -25,7 +25,7 @@ export class APIsService {
     })
   }
 
-//Akshay -- 19/09/2022 -- POSTING DATA FROM DATABASE BY CONNECTING TO Login CONTOLLER IN WEB API
+  //Akshay -- 19/09/2022 -- POSTING DATA FROM DATABASE BY CONNECTING TO Login CONTOLLER IN WEB API
   LoginPost(data: any) {
     return this.http.post(this.url + 'UserProfile/Login', data, {
       headers: {
@@ -35,9 +35,19 @@ export class APIsService {
   }
 
 
+  //Akshay -- 20/09/2022 -- POSTING DATA FROM DATABASE BY CONNECTING TO Feedback CONTOLLER IN WEB API
+  FeedbackPost(data: any) {
+    return this.http.post(this.url + 'Feedbacks/fdback', data, {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      }
+    })
+  }
 
-//Support Get
-getFaqData():Observable<ISupport[]>{
-  return this.http.get<ISupport[]>(this.url+'supports');
-}
+
+
+  //Support Get
+  getFaqData(): Observable<ISupport[]> {
+    return this.http.get<ISupport[]>(this.url + 'supports');
+  }
 }

@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = SBA_Bank
-build_property.ProjectDir = C:\Users\Bhanu\source\repos\SBA\sbaAPI\SBA-Bank\
+build_property.ProjectDir = D:\Projects\SBA\sbaAPI\SBA-Bank\
