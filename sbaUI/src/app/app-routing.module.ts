@@ -4,6 +4,7 @@ import { AdminComponent } from './Components/admin/admin.component';
 import { AuthGuard } from './auth/auth.guard';
 import { FAQComponent } from './Components/faq/faq.component';
 import { ForbiddenComponent } from './Components/forbidden/forbidden.component';
+import { FeedbackComponent } from './Components/feedback/feedback.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
@@ -17,8 +18,10 @@ const routes: Routes = [
   {path:'faq',component:FAQComponent,canActivate:[AuthGuard]},
   {path:'forbidden',component:ForbiddenComponent},
   {path:'Admin',component:AdminComponent,canActivate:[AuthGuard],data:{permittedRoles:['Admin']}},
-  {path:'main',component:MainComponent}
+  {path:'main',component:MainComponent},
   //,canActivate:[AuthGuard],data:{permittedRoles:['Admin']}
+ 
+  {path:'feedback',component:FeedbackComponent}
 ];
 
 @NgModule({

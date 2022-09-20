@@ -244,6 +244,27 @@ namespace SBA_Bank.Migrations
                     b.ToTable("accountDetails");
                 });
 
+            modelBuilder.Entity("SBA_Bank.Models.Feedback", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Opinions")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("feedbacks");
+                });
+
             modelBuilder.Entity("SBA_Bank.Models.Statement", b =>
                 {
                     b.Property<int>("txnId")

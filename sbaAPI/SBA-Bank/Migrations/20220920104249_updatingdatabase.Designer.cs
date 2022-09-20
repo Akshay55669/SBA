@@ -10,8 +10,8 @@ using SBA_Bank.DbContext;
 namespace SBA_Bank.Migrations
 {
     [DbContext(typeof(SBAdbContext))]
-    [Migration("20220919133733_FinalUpdateInDatabase")]
-    partial class FinalUpdateInDatabase
+    [Migration("20220920104249_updatingdatabase")]
+    partial class updatingdatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -244,6 +244,27 @@ namespace SBA_Bank.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("accountDetails");
+                });
+
+            modelBuilder.Entity("SBA_Bank.Models.Feedback", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Opinions")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("feedbacks");
                 });
 
             modelBuilder.Entity("SBA_Bank.Models.Statement", b =>

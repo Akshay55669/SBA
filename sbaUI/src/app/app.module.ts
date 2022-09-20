@@ -16,6 +16,7 @@ import { Authinterceptor } from './auth/auth.interceptor';
 import { MainComponent } from './Components/main/main.component';
 import { AccountDetailsComponent } from './Components/account-details/account-details.component';
 
+import { FeedbackComponent } from './Components/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AccountDetailsComponent } from './Components/account-details/account-de
     AccountDetailsComponent,
        
 
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,

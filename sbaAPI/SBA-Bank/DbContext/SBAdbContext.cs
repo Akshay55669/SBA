@@ -25,5 +25,7 @@ namespace SBA_Bank.DbContext
         // Akshay -- 16/09/2022-- Support table with all props
         public DbSet<Support> supports { get; set; }
 
+        public DbSet<Feedback> feedbacks { get; set; }
+
     }
 }

@@ -1,0 +1,54 @@
+<div class="container ">
+    <div class="row">
+        <div class="col-6">
+            <img class="registerImage animate__animated animate__fadeInUp" src="/assets/Images/10172375_8233.jpg"
+                alt="" />
+        </div>
+        <div class="col-6 text-center ">
+
+            <div class="account-form-wrapper d-flex justify-content-center shadow ">
+                <form class="account-form shadow animate__animated animate__fadeInDownBig" autocomplete="off"
+                    [formGroup]="formModel" (ngSubmit)="SaveData()">
+                    <h5 class="title text-success">Give Your Feedback</h5>
+
+
+                    <div class="form-group">
+                        <input id="Name" type="text" name="Name"
+                            class="form-control rounded border-white mb-3 form-input" placeholder="Enter your Name"
+                            formControlName="Name">
+                        <div class="text-danger" *ngIf="!formModel.controls.Name?.valid && (formModel.controls.Name?.dirty
+      ||formModel.controls.Name?.touched)">
+                            Name is not valid
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input id="Email" type="text" name="Email"
+                            class="form-control rounded border-white mb-3 form-input" placeholder="Enter your Email-id"
+                            formControlName="Email">
+                        <div class="text-danger" *ngIf="!formModel.controls.Email?.valid && (formModel.controls.Email?.dirty
+                            ||formModel.controls.Email?.touched)">
+                            Email-id is not valid
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="opinions" type="textarea" name="opinions" cols="25" rows="5"
+                            class="form-control rounded border-white mb-3 form-input"
+                            placeholder="Enter your Opinions here..." formControlName="Opinions"></textarea>
+                        <div class="text-danger" *ngIf="!formModel.controls.Opinions?.valid && (formModel.controls.Opinions?.dirty
+                            ||formModel.controls.Opinions?.touched)">
+                            Opinions is not valid
+                        </div>
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <button class="btn btn-success" type="submit" [disabled]="!formModel.valid">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
