@@ -1,19 +1,19 @@
 .registerImage{
-    border-radius: 40%;
-    padding-top: 8em;
-    width: 80%;
-    padding-left: 4em;
+    border-radius: 30%;
+    padding-top: 3em;
+    width: 90%;
+    padding-left: 2em;
 }
 
 .account-form-wrapper {
-    padding: 100px 0;
+    padding: 1em 0;
   }
   
   .account-form {
     padding: 30px 40px;
-    background-color: #e4db8c;
+    background-image: linear-gradient(135deg, #FFE000 10%, #799F0C 100%);
     border-radius: 12px;
-    max-width: 400px;
+    max-width: 500px;
     background-repeat: no-repeat;
   }
   
@@ -27,3 +27,33 @@
     height: 50px;
     padding-left: 16px;
   }
+
+           
+           
+           
+          
+           
+  .btn-grad {
+    background-image: linear-gradient(to right, #76b852 0%, #8DC26F  51%, #76b852  100%);
+   
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+ 
+ 
+ 
+ 

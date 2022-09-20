@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using SBA_Bank.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +17,8 @@ namespace SBA_Bank.Controllers
     [ApiController]
     public class UserDetailsController : ControllerBase
     {
-        private UserManager<IdentityUser> _userManager;
-        public UserDetailsController(UserManager<IdentityUser> userManager)
+        private UserManager<UserProfile> _userManager;
+        public UserDetailsController(UserManager<UserProfile> userManager)
         {
             _userManager = userManager;
         }
@@ -32,8 +33,12 @@ namespace SBA_Bank.Controllers
             return new
             {
                 user.Email,
-                user.UserName
-
+                user.UserName,
+                user.PhoneNumber,
+                user.firstName,
+                user.lastName
+              
+               
             };
         }
     }

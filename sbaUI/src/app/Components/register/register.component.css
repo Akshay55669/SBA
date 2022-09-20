@@ -11,7 +11,7 @@
   
   .account-form {
     padding: 10px 70px;
-    background-color: #e4db8c;
+    background-image: linear-gradient(135deg, #FFE000 10%, #799F0C 100%);
     border-radius: 12px;
     max-width: 400px;
     background-repeat: no-repeat;

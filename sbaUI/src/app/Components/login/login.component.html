@@ -1,13 +1,16 @@
-<div class="container ">
-    <div class="row">
+<div class="container w-100">
+    <div class="row pt-5 ">
         <div class="col-6">
-            <img class="registerImage animate__animated animate__fadeInUp" src="/assets/Images/10172375_8233.jpg"
+            <img class="registerImage animate__animated animate__flash" src="/assets/Images/10172375_8233.jpg"
                 alt="" />
         </div>
-        <div class="col-6 text-center ">
-
-            <div class="account-form-wrapper d-flex justify-content-center shadow ">
-                <form class="account-form shadow animate__animated animate__fadeInDownBig" autocomplete="off"
+        <div class="col-6 text-center shadow w-50 bg-light" style="padding-top: 1em; border-radius: 5%;">
+            <div>
+                <img src="/assets/Images/FaceIcon.png" class="w-25 animate__animated animate__bounce" style="border-radius: 25%; border-style: solid;
+                border-color: rgb(218, 219, 191);" alt="">
+            </div>
+            <div class="account-form-wrapper d-flex justify-content-center  ">
+                <form class="account-form shadow animate__animated animate__headShake" autocomplete="off"
                     [formGroup]="formModel" (ngSubmit)="SaveData()">
                     <h5 class="title text-success">Login To Our Family!</h5>
 
@@ -33,7 +36,7 @@
                         </div>
                     </div>
                     <div class="text-center pt-2">
-                        <button class="btn btn-success" type="submit" [disabled]="!formModel.valid">
+                        <button class="btn-grad" type="submit" [disabled]="!formModel.valid">
                             Login
                         </button>
                     </div>

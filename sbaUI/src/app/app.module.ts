@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,11 @@ import { HeaderComponent } from './Components/header/header.component';
 import { APIsService } from './API/apis.service';
 import { AdminComponent } from './Components/admin/admin.component';
 import { FAQComponent } from './Components/faq/faq.component';
+import { ForbiddenComponent } from './Components/forbidden/forbidden.component';
+import { Authinterceptor } from './auth/auth.interceptor';
+import { MainComponent } from './Components/main/main.component';
+import { AccountDetailsComponent } from './Components/account-details/account-details.component';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +26,11 @@ import { FAQComponent } from './Components/faq/faq.component';
     HeaderComponent,
     AdminComponent,
     FAQComponent,
+    ForbiddenComponent,
+    MainComponent,
+    AccountDetailsComponent,
+       
+
   ],
   imports: [
     BrowserModule,
@@ -29,7 +39,11 @@ import { FAQComponent } from './Components/faq/faq.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [APIsService],
+  providers: [APIsService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: Authinterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

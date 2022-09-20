@@ -17,7 +17,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     Aos.init();
-    this.formModel.reset();
+    if(localStorage.getItem('token')!=null){
+      this.router.navigateByUrl('/home');
+    }
   }
   formModel = new FormGroup({
 

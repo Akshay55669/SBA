@@ -19,10 +19,10 @@ namespace SBA_Bank.Controllers
     [ApiController]
     public class UserProfileController : ControllerBase
     {
-        private UserManager<IdentityUser> _userManager;
-        private SignInManager<IdentityUser> _signinManager;
+        private UserManager<UserProfile> _userManager;
+        private SignInManager<UserProfile> _signinManager;
         private readonly ApplicationSettings _appSettings;
-        public UserProfileController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signinManager, IOptions<ApplicationSettings> appSettings)
+        public UserProfileController(UserManager<UserProfile> userManager, SignInManager<UserProfile> signinManager, IOptions<ApplicationSettings> appSettings)
         {
             _userManager = userManager;
             _signinManager = signinManager;
@@ -36,9 +36,14 @@ namespace SBA_Bank.Controllers
         //Post:/api/UserProfile/Register
         public async Task<Object> PostUserProfile(Register model)
         {
+            //Bhanu -- 19/09/2022--added Role fields to assign role to registered user
+
+            model.role = "Customer";
             //Bhanu -- 17/09/2022--added more fields to gather info from user during registration
+
             var UserProfile = new UserProfile()
             {
+            
                 firstName = model.firstName,
                 lastName = model.lastName,
                 UserName = model.UserName,
@@ -51,7 +56,9 @@ namespace SBA_Bank.Controllers
             };
             try
             {
+
                 var result = await _userManager.CreateAsync(UserProfile, model.Password);
+                await _userManager.AddToRoleAsync(UserProfile, model.role);
                 return Ok(result);
             }
             catch (Exception ex)
