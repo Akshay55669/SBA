@@ -15,8 +15,8 @@ import { ForbiddenComponent } from './Components/forbidden/forbidden.component';
 import { Authinterceptor } from './auth/auth.interceptor';
 import { MainComponent } from './Components/main/main.component';
 import { AccountDetailsComponent } from './Components/account-details/account-details.component';
-
 import { FeedbackComponent } from './Components/feedback/feedback.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +30,8 @@ import { FeedbackComponent } from './Components/feedback/feedback.component';
     ForbiddenComponent,
     MainComponent,
     AccountDetailsComponent,
-       
-
     FeedbackComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -38,7 +38,7 @@ namespace SBA_Bank
 
             services.AddControllers();
             services.AddDbContext<SBAdbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<UserProfile, IdentityRole>()
                  .AddDefaultTokenProviders().AddDefaultUI()
                  .AddEntityFrameworkStores<SBAdbContext>();
 
@@ -49,7 +49,7 @@ namespace SBA_Bank
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;
-                options.Password.RequiredLength = 4;
+                options.Password.RequiredLength = 9;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;

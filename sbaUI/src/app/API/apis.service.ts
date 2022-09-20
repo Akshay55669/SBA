@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { IRegister } from '../Interface/IRegister';
 import { ISupport } from '../Interface/ISupport';
 import { HttpHeaders } from '@angular/common/http';
+import { IUserDetail } from '../Interface/IUserDetail';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +23,10 @@ getFaqData():Observable<ISupport[]>{
   return this.http.get<ISupport[]>(this.url+'supports');
 }
 
+getUserLoggedData():Observable<IUserDetail[]>{
+ 
+  return this.http.get<IUserDetail[]>(this.url+'UserDetails');
+}
 
 //}
 
@@ -45,23 +50,9 @@ getFaqData():Observable<ISupport[]>{
 
 //}
 
-getUserLoggedData(){
- 
-  return this.http.get(this.url+'UserDetails');
-}
 
-// roleMatch(allowedRoles: any[]): boolean {
-//   var isMatch = false;
-//   var payLoad = JSON.parse(window.atob(localStorage.getItem('token').split('.')[1]));
-//   var userRole = payLoad.role;
-//   allowedRoles.forEach(element => {
-//     if (userRole == element) {
-//       isMatch = true;
-//       return false;
-//     }
-//   });
-//   return isMatch;
-// }
+
+
   //Akshay -- 20/09/2022 -- POSTING DATA FROM DATABASE BY CONNECTING TO Feedback CONTOLLER IN WEB API
   FeedbackPost(data: any) {
     return this.http.post(this.url + 'Feedbacks/fdback', data, {

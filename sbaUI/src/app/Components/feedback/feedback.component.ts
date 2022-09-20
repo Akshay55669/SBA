@@ -25,7 +25,7 @@ export class FeedbackComponent implements OnInit {
   });
 
   SaveData() {
-    // debugger
+  debugger
     this.feedbackapi.FeedbackPost(this.formModel.value).subscribe(
       (res: any) => {
         if (res.succeeded) {

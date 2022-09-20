@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -38,7 +39,7 @@ namespace SBA_Bank.Controllers
         {
             //Bhanu -- 19/09/2022--added Role fields to assign role to registered user
 
-            model.role = "Customer";
+            model.role = "Admin";
             //Bhanu -- 17/09/2022--added more fields to gather info from user during registration
 
             var UserProfile = new UserProfile()
@@ -78,11 +79,15 @@ namespace SBA_Bank.Controllers
             var user = await _userManager.FindByNameAsync(model.UserName);
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
+                //Get role assigned to the user
+                var role = await _userManager.GetRolesAsync(user);
+                IdentityOptions _options = new IdentityOptions();
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                        new Claim("UserID",user.Id.ToString())
+                        new Claim("UserID",user.Id.ToString()),
+                        new Claim(_options.ClaimsIdentity.RoleClaimType,role.FirstOrDefault())
                     }),
                     Expires = DateTime.UtcNow.AddDays(1),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
@@ -94,6 +99,30 @@ namespace SBA_Bank.Controllers
             }
             else
                 return BadRequest(new { message = "Username or Password is incorrect." });
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        [Route("ForAdmin")]
+        public string GetForAdmin()
+        {
+            return "Web method for Admin";
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Customer")]
+        [Route("ForCustomer")]
+        public string GetCustomer()
+        {
+            return "Web method for Customer";
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin,Customer")]
+        [Route("ForAdminOrCustomer")]
+        public string GetForAdminOrCustomer()
+        {
+            return "Web method for Admin or Customer";
         }
 
     }

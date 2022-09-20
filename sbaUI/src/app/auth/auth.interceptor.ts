@@ -22,7 +22,10 @@ export class Authinterceptor implements HttpInterceptor{
                                 this.router.navigateByUrl('/login');
                             }
                             if (error.status === 404) {
-                                console.log('/forbidden');
+                                this.router.navigateByUrl('/forbidden');
+                            }
+                            if (error.status === 0) {
+                                this.router.navigateByUrl('/forbidden');
                             }
                             //etc
                         }

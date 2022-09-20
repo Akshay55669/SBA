@@ -35,8 +35,11 @@
                             Password is not valid
                         </div>
                     </div>
+                    <div>
+                        New User <span><a routerLink="/register" class="text-decoration-none text-light">register here</a></span>
+                    </div>
                     <div class="text-center pt-2">
-                        <button class="btn-grad" type="submit" [disabled]="!formModel.valid">
+                        <button class="btn-grad"  type="submit" [disabled]="!formModel.valid">
                             Login
                         </button>
                     </div>

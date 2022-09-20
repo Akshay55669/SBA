@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     Aos.init();
     if(localStorage.getItem('token')!=null){
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/main');
+      
     }
   }
   formModel = new FormGroup({
@@ -28,15 +29,17 @@ export class LoginComponent implements OnInit {
   });
 
   SaveData() {
-    // debugger
+ 
     this.Loginapi.LoginPost(this.formModel.value).subscribe(
       (res: any) => {
 
         localStorage.setItem('token',res.token);
-        this.router.navigateByUrl('');
-
+        this.router.navigateByUrl('/main');
+        window.location.reload();
+        console.log(res);
         if (res.succeeded) {
           this.formModel.reset();
+          window.location.reload();
           console.log('Login successful.');
         }
         else {
@@ -51,5 +54,7 @@ export class LoginComponent implements OnInit {
       // }
     );
   }
-
+  reloadCurrentPage() {
+    window.location.reload();
+   }
 }

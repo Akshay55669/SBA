@@ -1,6 +1,6 @@
 .information{
     padding-top: 5em;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family:Goudy Old Style, Garamond, Big Caslon, Times New Roman, serif;
     
 }
 
@@ -8,26 +8,16 @@
     padding-top: 1em;
   }
 .bank-img {
-  padding-top: 2em;
- 
-  max-width: 33%;
+  
 }
 
 
 .example img {
-    width: 92%;
- 
-    position: relative;
+  padding-top: 6em;
+    width:100%;
   }
   
-  .example .overlay {
-    position: absolute;
-    top: 80px;
-    right: 8em;
-    font-weight: bold;
-    text-align: right;
-    font-size: 25px;
-  }
+  
   @media (max-width: 480px) {
     .information{
       padding-top: 2em;
@@ -45,23 +35,18 @@
   .bank-img {
     padding-top: 1em;
    
-    max-width: 70%;
+    
   }
   
   
   .example img {
-      width:100%;
+     
   
-      position: relative;
+      
     }
     
     .example .overlay {
-      position: absolute;
-      top: 9em;
-      right: 1.5em;
-      font-weight: bolder;
-      text-align: right;
-      font-size: 25px;
+      
     }
 }
 

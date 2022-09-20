@@ -15,13 +15,11 @@ const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
-  {path:'faq',component:FAQComponent,canActivate:[AuthGuard]},
+  {path:'faq',component:FAQComponent},
   {path:'forbidden',component:ForbiddenComponent},
   {path:'Admin',component:AdminComponent,canActivate:[AuthGuard],data:{permittedRoles:['Admin']}},
-  {path:'main',component:MainComponent},
-  //,canActivate:[AuthGuard],data:{permittedRoles:['Admin']}
- 
-  {path:'feedback',component:FeedbackComponent}
+  {path:'main',component:MainComponent,canActivate:[AuthGuard],data:{permittedRoles:['Admin']}},
+  {path:'feedback',component:FeedbackComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

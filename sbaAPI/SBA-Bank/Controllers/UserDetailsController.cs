@@ -24,7 +24,7 @@ namespace SBA_Bank.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+       
         //Get:/api/UserDetails
         public async Task<Object> GetUserDetails()
         {
@@ -32,6 +32,8 @@ namespace SBA_Bank.Controllers
             var user = await _userManager.FindByIdAsync(UserId);
             return new
             {
+                user.Id,
+                user.dob,
                 user.Email,
                 user.UserName,
                 user.PhoneNumber,
