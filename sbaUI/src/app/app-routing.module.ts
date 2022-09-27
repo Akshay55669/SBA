@@ -9,6 +9,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { MainComponent } from './Components/main/main.component';
+import { FundTransferComponent } from './Components/fund-transfer/fund-transfer.component';
+import { AboutusComponent } from './Components/aboutus/aboutus.component';
 
 const routes: Routes = [
   //BHANU -- 17/09/22 -- Adding paths
@@ -18,8 +20,11 @@ const routes: Routes = [
   {path:'faq',component:FAQComponent},
   {path:'forbidden',component:ForbiddenComponent},
   {path:'Admin',component:AdminComponent,canActivate:[AuthGuard],data:{permittedRoles:['Admin']}},
-  {path:'main',component:MainComponent,canActivate:[AuthGuard],data:{permittedRoles:['Admin']}},
-  {path:'feedback',component:FeedbackComponent,canActivate:[AuthGuard]}
+  {path:'main',component:MainComponent,canActivate:[AuthGuard]},
+  {path:'feedback',component:FeedbackComponent,canActivate:[AuthGuard]},
+  {path:'moneytransfer',component:FundTransferComponent,canActivate:[AuthGuard]},
+  {path:'aboutus',component:AboutusComponent}
+
 ];
 
 @NgModule({

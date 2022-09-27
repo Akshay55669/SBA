@@ -17,6 +17,9 @@ import { MainComponent } from './Components/main/main.component';
 import { AccountDetailsComponent } from './Components/account-details/account-details.component';
 import { FeedbackComponent } from './Components/feedback/feedback.component';
 import { FooterComponent } from './Components/footer/footer.component';
+import { StatementComponent } from './Components/statement/statement.component';
+import { FundTransferComponent } from './Components/fund-transfer/fund-transfer.component';
+import { AboutusComponent } from './Components/aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { FooterComponent } from './Components/footer/footer.component';
     AccountDetailsComponent,
     FeedbackComponent,
     FooterComponent,
+    StatementComponent,
+    FundTransferComponent,
+    AboutusComponent,
   ],
   imports: [
     BrowserModule,

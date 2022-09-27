@@ -6,6 +6,7 @@ import { IRegister } from '../Interface/IRegister';
 import { ISupport } from '../Interface/ISupport';
 import { HttpHeaders } from '@angular/common/http';
 import { IUserDetail } from '../Interface/IUserDetail';
+import { IAccDetail } from '../Interface/IAccDetail';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +22,11 @@ export class APIsService {
   //BHANU -- 19/09/2022 -- GETTING DATA FROM SUPPORT DATABASE
 getFaqData():Observable<ISupport[]>{
   return this.http.get<ISupport[]>(this.url+'supports');
+}
+
+getUserAccData():Observable<IAccDetail[]>{
+ 
+  return this.http.get<IAccDetail[]>(this.url+'AccountInfoes');
 }
 
 getUserLoggedData():Observable<IUserDetail[]>{

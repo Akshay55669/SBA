@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using SBA_Bank.DbContext;
 using SBA_Bank.Models;
 using System;
 using System.Collections.Generic;
@@ -18,13 +19,15 @@ namespace SBA_Bank.Controllers
     public class UserDetailsController : ControllerBase
     {
         private UserManager<UserProfile> _userManager;
-        public UserDetailsController(UserManager<UserProfile> userManager)
+        private SBAdbContext _context;
+        public UserDetailsController(UserManager<UserProfile> userManager, SBAdbContext context)
         {
             _userManager = userManager;
+            _context = context;
         }
 
         [HttpGet]
-       
+
         //Get:/api/UserDetails
         public async Task<Object> GetUserDetails()
         {
@@ -38,10 +41,14 @@ namespace SBA_Bank.Controllers
                 user.UserName,
                 user.PhoneNumber,
                 user.firstName,
-                user.lastName
-              
+                user.lastName,
                
+               
+
+
             };
         }
+
+
     }
 }

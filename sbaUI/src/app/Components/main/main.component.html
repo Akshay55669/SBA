@@ -1,66 +1,91 @@
 
- <section class="bg-dark">
-  <div class="container py-5">
-
-
-    <div class="row" *ngIf="User">
-      <div class="col-lg-4">
-        <div class="card mb-4">
-          <div class="card-body text-center">
-            <img src="/assets/Svg/user-profile-svgrepo-com.svg" alt="avatar"
-              class="rounded-circle img-fluid" style="width: 150px;">
-            <h5 class="my-3">{{User.firstName}} {{User.lastName}}</h5>
-            <p class="text-muted mb-1">Date Of Birth: {{User.dob}}<span></span></p>
-            <p class="text-muted mb-4">Account No:</p>
-          </div>
+  <table class="side" style="background: radial-gradient(343px at 46.3% 47.5%, rgb(242, 242, 242) 0%, rgb(241, 241, 241) 72.9%); width:100%;">
+    <div class="row">
+        <!-- <div class="col-1">
+            <img id="userimg" src="../../assets/Images/user1.jfif" alt="user">
+        </div> -->
+        
+        <div class="col-8 " id="user" style="padding-left: 5em;" >
+          <tr >
+            <th class="text-black-50">Account-no:</th>
+              <td>
+                <div   >
+                 <div >
+                  <input type="text" class="text-center w-75 text-dark" disabled style="background-color: rgb(200, 199, 195);"[value]="'SBA'+Account.accountId">
+                </div>
+                </div>
+              </td>
+          </tr>
         </div>
-
-      </div>
-      <div class="col-lg-8">
-        <div class="card mb-4">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Full Name</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{{User.firstName}} {{User.lastName}}</p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Email</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{{User.email}}</p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Mobile</p>
-              </div>
-              <div class="col-sm-9">
-              <p class="text-muted mb-0">{{User.phoneNumber}}</p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Address</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">N/a</p>
-              </div>
-            </div>
-          </div>
+        <div class="col-3">
+           
+            <tr >
+              <th class="text-black-50">Balance:</th>
+                <td>
+                  <div   >
+                   <div >
+                    <input type="text" class="text-center w-75 text-dark" disabled style="background-color: rgb(200, 199, 195);"[value]="'₹ '+Account.balance">
+                  </div>
+                  </div>
+                </td>
+            </tr>
         </div>
-      </div>
     </div>
+</table>
 
+<br />
 
-  </div>
-</section>
+<!-- <nav class="navbar ">
+    <table class="nav">
+        <tr>
+            <th routerLink="/home">My Account</th>
+            <th routerLink="/main">My Profile</th>
+            <th>Change Password</th>
+            <th>Fund Transfer</th>
+            <th>Statement</th>
+        </tr>
+    </table>
+</nav><br /> -->
+<div class="container-fluid" >
+    <div class="row" >
+      
+        <div class="col-4 shadow accountInfo" >
+          
+            <form class="details"  >
+                <h5>Account Details</h5>
+                <div class="text-center">
+                  <label for="">Email-ID:</label>
+                  <input type="text" class="text-center w-75" disabled style="background-color: rgb(211, 205, 169);"  [value]="User?.email">
+                </div>
+                <div class="text-center">
+                  <label for="">Mob-No:</label>
+                  <input type="text" class="text-center w-75" disabled style="background-color: rgb(211, 205, 169);"  [value]="User?.phoneNumber">
+                </div>
+                <div class="text-center">
+                  <label for="">D.O.B :</label>
+                  <input type="text" class="text-center w-75" disabled style="background-color: rgb(211, 205, 169);"  [value]="User?.dob |date: 'yyyy-MM-dd' : 'UTC'">
+                </div>
+                <div class="text-center">
+                  <label for="">Balance:</label>
+                  <input type="text" class="text-center w-50" disabled style="background-color: rgb(211, 205, 169);"  [value]="Account?.accountId">
+                </div>
+               
+            </form>
+           <!-- <ul style="list-style: none; " >
+
+            <li class="pt-5">Balance :<span class="bg-light w-100"> na</span></li>
+            <li class="pt-3">Account No : na</li>
+             
+           </ul> -->
+           
+          </div>
+        
+        <div class="col-8">
+           <app-statement></app-statement>
+        </div>
+    </div>
+    <br />
+</div>
+
 
 

@@ -18,7 +18,7 @@ namespace SBA_Bank.DbContext
         // Bhanu -- 16/09/2022-- UserProfile table with all props
         public DbSet<UserProfile> userProfiles { get; set; }
         // Akshay -- 16/09/2022-- AccountDetails table with all props
-        public DbSet<AccountDetails> accountDetails { get; set; }
+      public DbSet<AccountInfo> accountInfos { get; set; }
         // Bhanu -- 16/09/2022-- Statement table with all props
         public DbSet<Statement> statements { get; set; }
 

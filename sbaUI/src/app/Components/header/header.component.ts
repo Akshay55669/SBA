@@ -25,6 +25,7 @@ this.user.getUserLoggedData().subscribe((data:IUserDetail[]) =>{
     localStorage.removeItem('token');
     this.route.navigate(['/login'])
     User.login=false;
+    window.location.reload();
     }
   }
 //temp logut

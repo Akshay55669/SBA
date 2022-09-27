@@ -1,0 +1,62 @@
+.side{
+    margin-top: none;
+}
+input{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    width: 250px;
+    border-radius: 6px;
+    border: none;
+}
+#userimg{
+    height: 100px;
+    background-color: #FFE000;
+}
+#homebtn{
+    margin-left: 35px;
+}
+.details h5{
+    padding-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#user{
+    margin-left: 12px;
+}
+form{
+    background-image: linear-gradient(135deg, #FFE000 10%, #799F0C 100%);
+    border-radius: 12px;
+    background-repeat: no-repeat;
+}
+
+.accountInfo{
+    background-image: linear-gradient(135deg, #FFE000 10%, #799F0C 100%);
+    border-radius: 12px;
+    background-repeat: no-repeat;
+}
+.navbar{
+    background: radial-gradient(343px at 46.3% 47.5%, rgb(242, 242, 242) 0%, rgb(241, 241, 241) 72.9%);
+   
+}
+img{
+    height: 60px;
+}
+.nav th{
+    padding-left: 120px;
+}
+.statement th{
+    padding-left: 50px;
+}
+.statement h5{
+    padding-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.thead{
+    background-color: #799F0C;
+}
+.tbody{
+    text-align: center;
+}

@@ -1,0 +1,60 @@
+<div class="container w-100 ">
+    
+      
+        <div class=" text-center shadow-lg main w-100 bg-light" style="padding-top: 2em; border-radius: 3%;">
+            <!-- <div>
+                <img src="/assets/Images/FaceIcon.png" class="w-25 animate__animated animate__bounce" style="border-radius: 25%; border-style: solid;
+                border-color: rgb(218, 219, 191);" alt="">
+            </div> -->
+            <div class="account-form-wrapper  d-flex justify-content-center  ">
+                <form class="account-form shadow animate__animated animate__headShake" autocomplete="off"
+                    [formGroup]="formModel" (ngSubmit)="SaveData()">
+                    <h5 class="title text-success">Money-Transfer</h5>
+
+
+                    <div class="form-group">
+                        <label>Account No</label>
+                      <input  id="accountId" type="text" name="accountId" class="form-control rounded border-white mb-3 form-input" placeholder="Enter recipient Account-Id" formControlName="accountId">
+                      <div class="text-danger"
+                      *ngIf="!formModel.controls.accountId?.valid && (formModel.controls.accountId?.dirty
+                      ||formModel.controls.accountId?.touched)">
+                      Account-No is Incorrect
+                      </div>
+                      </div>
+
+                    <div class="form-group">
+                        <label>Amount</label>
+                        <input id="balance" type="text" name="balance"
+                            class="form-control rounded border-white mb-3 form-input" placeholder="Enter Amount"
+                            formControlName="balance">
+                        <div class="text-danger" *ngIf="!formModel.controls.balance?.valid && (formModel.controls.balance?.dirty
+              ||formModel.controls.balance?.touched)">
+                            Enter valid Amount
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input id="description" type="text" name="description"
+                            class="form-control rounded border-white mb-3 form-input" placeholder="Enter recipient name"
+                            formControlName="description">
+                        <div class="text-danger" *ngIf="!formModel.controls.description?.valid && (formModel.controls.description?.dirty
+              ||formModel.controls.description?.touched)">
+                            Description cannot be empty 
+                        </div>
+                    </div>
+                   
+                    <div class="text-center pt-2">
+                        <button class="btn-grad"  type="submit" [disabled]="!formModel.valid">
+                            Pay Now
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+</div>
+
+
+
+

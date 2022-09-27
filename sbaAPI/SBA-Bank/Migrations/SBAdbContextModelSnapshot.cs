@@ -221,9 +221,9 @@ namespace SBA_Bank.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SBA_Bank.Models.AccountDetails", b =>
+            modelBuilder.Entity("SBA_Bank.Models.AccountInfo", b =>
                 {
-                    b.Property<long>("AccountNo")
+                    b.Property<long>("AccountId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -231,17 +231,17 @@ namespace SBA_Bank.Migrations
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("BankBranch")
+                    b.Property<string>("Branch")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("AccountNo");
+                    b.HasKey("AccountId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("accountDetails");
+                    b.ToTable("accountInfos");
                 });
 
             modelBuilder.Entity("SBA_Bank.Models.Feedback", b =>
@@ -272,11 +272,11 @@ namespace SBA_Bank.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("AccountNo")
-                        .HasColumnType("bigint");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("credit")
                         .HasColumnType("decimal(18,2)");
@@ -289,7 +289,7 @@ namespace SBA_Bank.Migrations
 
                     b.HasKey("txnId");
 
-                    b.HasIndex("AccountNo");
+                    b.HasIndex("UserId");
 
                     b.ToTable("statements");
                 });
@@ -382,24 +382,22 @@ namespace SBA_Bank.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SBA_Bank.Models.AccountDetails", b =>
+            modelBuilder.Entity("SBA_Bank.Models.AccountInfo", b =>
                 {
-                    b.HasOne("SBA_Bank.Models.UserProfile", "User")
+                    b.HasOne("SBA_Bank.Models.UserProfile", "UserProfile")
                         .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.Navigation("User");
+                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("SBA_Bank.Models.Statement", b =>
                 {
-                    b.HasOne("SBA_Bank.Models.AccountDetails", "AccountDetails")
+                    b.HasOne("SBA_Bank.Models.UserProfile", "UserProfile")
                         .WithMany()
-                        .HasForeignKey("AccountNo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
-                    b.Navigation("AccountDetails");
+                    b.Navigation("UserProfile");
                 });
 #pragma warning restore 612, 618
         }

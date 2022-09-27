@@ -1,0 +1,64 @@
+.main{
+    background-image: url('https://thumbs.dreamstime.com/b/modern-outline-style-investments-icons-collection-premium-quality-symbols-sign-web-logo-collection-pack-modern-infographic-104007704.jpg');
+    background-size: 8em;
+    padding-bottom: 6em;
+}
+.registerImage{
+    border-radius: 30%;
+    padding-top: 3em;
+    width: 90%;
+    padding-left: 2em;
+}
+
+.account-form-wrapper {
+    padding: 1em 0;
+  }
+  
+  .account-form {
+    padding: 30px 40px;
+    background: linear-gradient(135deg, rgb(245, 229, 2) 25%, rgb(126, 182, 20) 100%);;
+    border-radius: 12px;
+    width: 20em;
+    background-repeat: no-repeat;
+  }
+  
+  .account-form textarea {
+    resize: none;
+  }
+  
+  .account-form .form-input,
+  .form-text-area {
+    background-color: #eff0ec;
+    height: 50px;
+    padding-left: 16px;
+  }
+
+           
+           
+           
+          
+           
+  .btn-grad {
+    background-image: linear-gradient(to right, #dec140 0%, #c39010  51%, #ff950a  100%);
+   
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+ 
+ 
+ 
+ 

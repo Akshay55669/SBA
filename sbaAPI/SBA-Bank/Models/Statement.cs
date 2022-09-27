@@ -22,10 +22,10 @@ namespace SBA_Bank.Models
 
         public decimal credit { get; set; }
 
-        public long AccountNo { get; set; }
+        public string UserId { get; set; }
 
-        [ForeignKey("AccountNo")]
-        public virtual AccountDetails AccountDetails { get; set; }
+        [ForeignKey("UserId")]
+        public virtual UserProfile UserProfile { get; set; }
 
 
 

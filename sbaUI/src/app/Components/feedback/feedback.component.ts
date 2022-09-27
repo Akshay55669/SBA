@@ -15,6 +15,7 @@ export class FeedbackComponent implements OnInit {
   ngOnInit(): void {
     Aos.init();
     this.formModel.reset();
+   
   }
   formModel = new FormGroup({
 
@@ -30,6 +31,7 @@ export class FeedbackComponent implements OnInit {
       (res: any) => {
         if (res.succeeded) {
           this.formModel.reset();
+          window.location.reload();
           console.log('Feedback Submitted sucessfully');
         }
         else {
