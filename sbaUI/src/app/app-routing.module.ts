@@ -20,9 +20,9 @@ const routes: Routes = [
   {path:'faq',component:FAQComponent},
   {path:'forbidden',component:ForbiddenComponent},
   {path:'Admin',component:AdminComponent,canActivate:[AuthGuard],data:{permittedRoles:['Admin']}},
-  {path:'main',component:MainComponent,canActivate:[AuthGuard]},
-  {path:'feedback',component:FeedbackComponent,canActivate:[AuthGuard]},
-  {path:'moneytransfer',component:FundTransferComponent,canActivate:[AuthGuard]},
+  {path:'main',component:MainComponent,canActivate:[AuthGuard],data:{permittedRoles:['Admin']}},
+  {path:'feedback',component:FeedbackComponent,canActivate:[AuthGuard],data:{permittedRoles:['Admin']}},
+  {path:'moneytransfer',component:FundTransferComponent,canActivate:[AuthGuard],data:{permittedRoles:['Admin']}},
   {path:'aboutus',component:AboutusComponent}
 
 ];

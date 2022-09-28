@@ -27,6 +27,11 @@ namespace SBA_Bank.Controllers
             _context = context;
         }
 
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<AccountInfo>>> GetaccountInfosAgain()
+        //{
+        //    return await _context.accountInfos.ToListAsync();
+        //}
         // GET: api/AccountInfoes
         [HttpGet]
         //public async Task<ActionResult<IEnumerable<AccountInfo>>> GetaccountInfos()
@@ -82,9 +87,10 @@ namespace SBA_Bank.Controllers
             {
                 return BadRequest();
             }
-
-            _context.Entry(accountInfo).State = EntityState.Modified;
-
+            
+            _context.Entry(accountInfo).Property(a=>a.Balance)
+            .IsModified=true;
+          
             try
             {
                 await _context.SaveChangesAsync();

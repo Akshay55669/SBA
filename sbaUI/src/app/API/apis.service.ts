@@ -53,6 +53,14 @@ getUserLoggedData():Observable<IUserDetail[]>{
       }
     })
   }
+  MoneyPost(data: any) {
+    console.log(data);
+    return this.http.put(this.url + 'AccountInfoes/'+ data.accountId, data, {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      }
+    })
+  }
 
 //}
 

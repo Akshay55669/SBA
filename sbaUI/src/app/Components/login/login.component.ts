@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as Aos from 'aos';
+import { ToastrService } from 'ngx-toastr';
 // import { ToastrService } from 'ngx-toastr';
 import { APIsService } from 'src/app/API/apis.service';
 
@@ -13,7 +14,7 @@ import { APIsService } from 'src/app/API/apis.service';
 export class LoginComponent implements OnInit {
 
   // constructor(private fb: FormBuilder, private Loginapi: APIsService,private router:Router, private toastr:ToastrService) { }
-  constructor(private fb: FormBuilder, private Loginapi: APIsService,private router:Router) { }
+  constructor(private fb: FormBuilder, private Loginapi: APIsService,private router:Router,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     Aos.init();
@@ -29,11 +30,12 @@ export class LoginComponent implements OnInit {
   });
 
   SaveData() {
- 
+    this.toastr.success('success login','done');
     this.Loginapi.LoginPost(this.formModel.value).subscribe(
       (res: any) => {
 
         localStorage.setItem('token',res.token);
+        
         this.router.navigateByUrl('/main');
         window.location.reload();
         console.log(res);

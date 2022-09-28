@@ -20,7 +20,8 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { StatementComponent } from './Components/statement/statement.component';
 import { FundTransferComponent } from './Components/fund-transfer/fund-transfer.component';
 import { AboutusComponent } from './Components/aboutus/aboutus.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,13 @@ import { AboutusComponent } from './Components/aboutus/aboutus.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut:2000,
+      progressAnimation: 'increasing',
+      progressBar:true,
+      positionClass:'toast-top-right'
+        }),
   ],
   providers: [APIsService,{
     provide: HTTP_INTERCEPTORS,

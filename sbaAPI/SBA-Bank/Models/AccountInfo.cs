@@ -14,7 +14,7 @@ namespace SBA_Bank.Models
 
         public string Branch { get; set; }
 
-        public decimal Balance { get; set; }
+        public int Balance { get; set; }
 
         public string UserId { get; set; }
 
